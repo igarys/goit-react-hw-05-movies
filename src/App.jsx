@@ -1,9 +1,9 @@
 // import { StyledLink } from "App.styled";
 import { Route, Routes } from "react-router-dom"
-import { Home, Movies } from './pages'
+import { Home, Movies, MoviesList } from './pages'
 import { Nav, StyledLink } from "App.styled";
 
-export const App = () => {
+export const App = ({query}) => {
 
 
   
@@ -17,7 +17,9 @@ export const App = () => {
       </Nav>
       <Routes>
         <Route path="/" element={<Home />}/>
-        <Route path="movies" element={<Movies/> } />
+        <Route path="movies" element={<Movies />}/>
+          <Route path={`?query=${query}`} element={<MoviesList/> } />
+      
       </Routes>
     </div>
   );

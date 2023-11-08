@@ -1,6 +1,9 @@
+import { clear } from "@testing-library/user-event/dist/clear";
 import { Container } from "App.styled"
+import { MoviesList } from "pages/MoviesList";
 import { useState } from "react";
 import { useEffect } from "react";
+import { parsePath } from "react-router-dom";
 
 export const Movies = () => {
 
@@ -32,14 +35,10 @@ console.log(movies)
     return (
       <div>
         <Container>
-          <input onChange={handleChange} />
+          <input name='inputV' onChange={handleChange} />
           <button onClick={handleClick}>Search</button>
         </Container>
-        <ul>
-          {movies?.map(movie => (
-            <li key={movie.id}>{movie.original_title}</li>
-          ))}
-        </ul>
+        <MoviesList movies={movies} query={ query} />
       </div>
     );
 }
