@@ -10,6 +10,7 @@ export const Movies = () => {
     const [movies, setMovies] = useState();
     const [input, setInput] = useState('');
     const [query, setQuery] = useState('');
+    
 
     const handleChange = (e) => {
         setInput(e.target.value)
@@ -22,7 +23,7 @@ export const Movies = () => {
      useEffect(() => {
        const fetchMovies = () => {
          fetch(
-           `https://api.themoviedb.org/3/search/movie?query=${query}&include_adult=false&language=en-US&page=1&api_key=9b869e87921daf5eab7f2f605ad1504f`
+           `https://api.themoviedb.org/3/search/movie?query=${query}&language=en-US&page=1&region=US&api_key=9b869e87921daf5eab7f2f605ad1504f`
          )
            .then(response => response.json())
            .then(movies => setMovies(movies.results))
