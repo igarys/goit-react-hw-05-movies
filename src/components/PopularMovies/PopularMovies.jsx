@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useState } from 'react';
 
-export const PopularMovies = () => {
+ const PopularMovies = () => {
   const [popularMovies, setPopularMovies] = useState();
 
   useEffect(() => {
@@ -25,3 +25,5 @@ export const PopularMovies = () => {
         </ul>
     )
 };
+
+export default PopularMovies;

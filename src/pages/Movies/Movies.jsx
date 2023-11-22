@@ -1,11 +1,9 @@
-import { clear } from "@testing-library/user-event/dist/clear";
 import { Container } from "App.styled"
-import { MoviesList } from "pages/MoviesList";
-import { useState } from "react";
-import { useEffect } from "react";
-import { parsePath } from "react-router-dom";
+import MoviesList from "pages/MoviesList/MoviesList";
+import { useState, useEffect, Suspense } from 'react';
+import { Outlet } from "react-router-dom";
 
-export const Movies = () => {
+ const Movies = () => {
 
     const [movies, setMovies] = useState();
     const [input, setInput] = useState('');
@@ -36,10 +34,15 @@ console.log(movies)
     return (
       <div>
         <Container>
-          <input name='inputV' onChange={handleChange} />
+          <input name="inputV" onChange={handleChange} />
           <button onClick={handleClick}>Search</button>
         </Container>
-        <MoviesList movies={movies} query={ query} />
+        {/* <Suspense fallback={<div>Loading...</div>}> */}
+          {/* <Outlet /> */}
+        {/* </Suspense> */}
+        <MoviesList movies={movies} query={query} />
       </div>
     );
-}
+ }
+
+export default Movies;

@@ -1,11 +1,9 @@
 // import { fetchApi } from "services/API"
 
 import { Header } from "App.styled";
-import { PopularMovies } from "components";
-// import { useEffect } from "react";
-// import { useState } from "react";
+import PopularMovies from "components/PopularMovies/PopularMovies";
 
-export const Home = () => {
+ const Home = () => {
  
     return (
         <main>
@@ -13,4 +11,6 @@ export const Home = () => {
        <PopularMovies/>
       </main>
     );
-}
+ }
+
+export default Home;
