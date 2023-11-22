@@ -1,12 +1,12 @@
 import { About, Button, ButtonContainer, MovieCard } from 'App.styled';
 import Cast from 'components/Cast/Cast';
 import Reviews from 'components/Reviews/Reviews';
-import { useEffect, useState, lazy, Suspense } from 'react';
-import { Link, Outlet, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
 
 // const Cast = lazy(() => import('components'));
 // const Reviews = lazy(() => import('components'));
-const loader = () => <p>LOADING...</p>;
+// const loader = () => <p>LOADING...</p>;
 
 
  const MovieDetails = () => {
@@ -24,6 +24,7 @@ const loader = () => <p>LOADING...</p>;
       setMovieDetails(movie);
     };
     fetchDetails();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const clickCast = () => {

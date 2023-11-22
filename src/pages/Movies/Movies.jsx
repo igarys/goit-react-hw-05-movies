@@ -1,7 +1,7 @@
 import { Container } from "App.styled"
 import MoviesList from "pages/MoviesList/MoviesList";
-import { useState, useEffect, Suspense } from 'react';
-import { Outlet } from "react-router-dom";
+import { useState, useEffect } from 'react';
+// import { Outlet } from "react-router-dom";
 
  const Movies = () => {
 
