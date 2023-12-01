@@ -1,15 +1,12 @@
 import { About, Button, ButtonContainer, MovieCard } from 'App.styled';
-import Cast from 'components/Cast/Cast';
-import Reviews from 'components/Reviews/Reviews';
-import { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import {  useEffect, useState } from 'react';
+import { Link, Outlet, useParams } from 'react-router-dom';
 
 // const Cast = lazy(() => import('components'));
 // const Reviews = lazy(() => import('components'));
 // const loader = () => <p>LOADING...</p>;
 
-
- const MovieDetails = () => {
+const MovieDetails = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState();
   const [cast, setCast] = useState();
@@ -51,8 +48,8 @@ import { Link, useParams } from 'react-router-dom';
   const movie = { ...movieDetails };
   const genres = movie.genres;
   const actors = { ...cast }.cast;
-   const reviewList = { ...reviews }.results;
-   const reviewTotal = { ...reviews }.total_results;
+  const reviewLists = { ...reviews }.results;
+  const reviewTotal = { ...reviews }.total_results;
 
   return (
     <div>
@@ -61,12 +58,12 @@ import { Link, useParams } from 'react-router-dom';
           <h2 style={{ marginBlock: 10 }}>{movie.title}</h2>
           {movie.overview}
           <ButtonContainer>
-            <Link to={`/movies/${movieId}/cast`}>
+            <Link to="cast">
               <Button onClick={clickCast} type="button">
                 Cast
               </Button>
             </Link>
-            <Link to={`/movies/${movieId}/reviews`}>
+            <Link to="reviews">
               <Button onClick={clickReviews} type="button">
                 Reviews
               </Button>
@@ -91,11 +88,8 @@ import { Link, useParams } from 'react-router-dom';
           </div>
         </MovieCard>
       </div>
-      {/* <Suspense fallback={<div>Loading subpage...</div>}> */}
-      <Cast actors={actors} />
-      <Reviews reviews={reviewList} reviewTotal={reviewTotal} />
-      {/*    
-      </Suspense> */}
+      <Outlet context={{ reviewLists, reviewTotal }} />
+      <Outlet context={{ actors }} />
     </div>
   );
 };

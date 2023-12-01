@@ -10,9 +10,7 @@ export const SharedLayout = () => {
         </StyledLink>
         <StyledLink to="/movies">Movies</StyledLink>
       </Nav>
-
-        <Outlet />
-     
+      <Outlet />
     </div>
   );
 };

@@ -1,8 +1,10 @@
+import { useOutletContext} from "react-router-dom";
 
 
 
- const Cast = ({actors }) => {
+const Cast = () => {
 
+  const { actors }  = useOutletContext();
     return (
       <div>
         {actors ? (
